@@ -1,2 +1,10 @@
 ---
-# tasks file for ansible-role-comment
+
+- name: Send comment to Dynatrace
+  dynatrace_comment:
+    tenant_url: '{{tenant_url}}'
+    api_token: '{{api_token}}'
+    problem_id: '{{problem_id}}'
+    comment: '{{comment}}'
+    user: '{{user}}'
+    context: '{{context}}'
