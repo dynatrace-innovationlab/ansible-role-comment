@@ -15,6 +15,7 @@ This role allows to send comments to Dynatrace.
   - include_role:
       name: dynatrace_comment
     vars: 
-      
+      problem_id: ''
+      comment: 'Hello from Ansible'
 
 ```
