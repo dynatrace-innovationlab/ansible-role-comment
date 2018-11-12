@@ -119,8 +119,8 @@ def main():
             module.fail_json(msg="Token Authentification failed.")
         else:
             module.fail_json(msg="Unable to send comment to Dynatrace: %s" % info)
-      except Exception as e:
-          module.fail_json(msg="Failure: " + e.message)
+    except Exception as e:
+        module.fail_json(msg="Failure: " + e.message)
 
 
 if __name__ == '__main__':
