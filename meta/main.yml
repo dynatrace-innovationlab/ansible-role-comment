@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: Dynatrace Problem Comment 
   author: Juergen Etzlstorfer (@jetzlstorfer)
   description: Pushing comments to a Dynatrace problem ticket
   company: Dynatrace
