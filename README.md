@@ -23,7 +23,7 @@ Please find below a list of variables that have to be configured:
 | context         | Ansible | context the comment was sent from
 
 
-### Usage (Example):
+## Usage (Example):
 
 ```yaml
 - hosts: localhost
