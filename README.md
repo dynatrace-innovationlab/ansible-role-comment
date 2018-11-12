@@ -13,8 +13,8 @@ The role is available via:
 
 Please find below a list of variables that have to be configured:
 
-| Name                                   | Default            | Description
-|----------------------------------------|--------------------|------------
+| Name            | Default | Description
+|-----------------|---------|------------
 | tenant_url      |         | URL of your Dynatrace tenant
 | api_token       |         | API Token from your Dynatrace tenant
 | problem_id      |         | Problem ID of the Dynatrace problem ticket you want to comment on
