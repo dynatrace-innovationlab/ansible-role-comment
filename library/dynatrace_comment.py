@@ -93,35 +93,35 @@ def main():
 
     # If we're in check mode, just exit pretending like we succeeded
     if module.check_mode:
-      module.exit_json(changed=True)
+        module.exit_json(changed=True)
 
     # Send the comment to Dynatrace and attach it to a problem
     dt_url = module.params["tenant_url"] + "/api/v1/problem/details/" + module.params["problem_id"] + "/comments"
-    #data = urlencode(params)
+    # data = urlencode(params)
     headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Api-Token ' + module.params['api_token']
     }
 
     # FAIL FOR DEBUG PURPOSES - TO INSPECT PAYLOAD #####
-    #module.fail_json(msg=json.dumps(params))
+    # module.fail_json(msg=json.dumps(params))
     #
 
     ####
     # SEND COMMENT EVENT TO DYNATRACE
     ####
     try:
-      response, info = fetch_url(module, dt_url, data=json.dumps(params), headers=headers)
+        response, info = fetch_url(module, dt_url, data=json.dumps(params), headers=headers)
 
-      if info['status'] in (200, 201):
-        module.exit_json(changed=True)
-      elif info['status'] == 401:
-        module.fail_json(msg="Token Authentification failed.")
-      else:
-        module.fail_json(msg="Unable to send comment to Dynatrace: %s" % info)
-    except Exception as e:
-      module.fail_json(msg="Failure: " + e.message)
+        if info['status'] in (200, 201):
+            module.exit_json(changed=True)
+        elif info['status'] == 401:
+            module.fail_json(msg="Token Authentification failed.")
+        else:
+            module.fail_json(msg="Unable to send comment to Dynatrace: %s" % info)
+      except Exception as e:
+          module.fail_json(msg="Failure: " + e.message)
+
 
 if __name__ == '__main__':
-
     main()
