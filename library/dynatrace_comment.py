@@ -20,7 +20,7 @@ version_added: "X.X"
 author: "Juergen Etzlstorfer (@jetzlstorfer)"
 short_description: Comment on Dynatrace detected problems
 description:
-   - Send comments to a problem detected by Dynatrace (see https://www.dynatrace.com/support/help/dynatrace-api/problems/how-do-i-push-or-add-comments-to-problems/ )
+  - Push a comment to a Dynatrace problem ticket
 options:
   tenant_url:
     description:
@@ -34,7 +34,7 @@ options:
     description:
       - Dynatrace Problem ID to add the comment to
     required: true
-  comment: 
+  comment:
     description:
       - Content of comment to push to Dynatrace
     required: true
@@ -46,7 +46,6 @@ options:
     description:
       - Source where the comment originates from (default: Ansible)
     required: false
- 
 requirements: []
 '''
 
@@ -60,7 +59,7 @@ EXAMPLES = '''
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.urls import fetch_url
-from ansible.module_utils.six.moves.urllib.parse import urlencode
+#from ansible.module_utils.six.moves.urllib.parse import urlencode
 import json
 
 # ===========================================
@@ -103,19 +102,18 @@ def main():
     'Content-Type': 'application/json',
     'Authorization': 'Api-Token ' + module.params['api_token']
   }
-  
-  ###### FAIL FOR DEBUG PURPOSES - TO INSPECT PAYLOAD #####
+
+  # FAIL FOR DEBUG PURPOSES - TO INSPECT PAYLOAD #####
   #module.fail_json(msg=json.dumps(params))
-  #########################################################
-  
+  #
+
   ####
   # SEND COMMENT EVENT TO DYNATRACE
   ####
   try:
     response, info = fetch_url(module, dt_url, data=json.dumps(params), headers=headers)
-    
+
     if info['status'] in (200, 201):
-      #module.exit_json(changed=True,meta=info)
       module.exit_json(changed=True)
     elif info['status'] == 401:
       module.fail_json(msg="Token Authentification failed.")
@@ -126,3 +124,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
