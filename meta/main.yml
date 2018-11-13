@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: dynatrace-problem-comment 
+  role_name: dynatrace1-problem-comment 
   author: Juergen Etzlstorfer (@jetzlstorfer)
   description: Pushing comments within a playbook to a Dynatrace problem ticket.
   company: Dynatrace
