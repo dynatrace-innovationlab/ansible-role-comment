@@ -50,11 +50,11 @@ requirements: []
 '''
 
 EXAMPLES = '''
-- dynatrace_deployment:
+- dynatrace_comment:
     tenant_url: https://mytenant.live.dynatrace.com
     api_token: XXXXXXXX
     comment: 'Comment sent from Ansible'
-    user: 'juergen.etzlstorfer@dynatrace.com'
+    user: 'user@dynatrace.com'
 '''
 
 from ansible.module_utils.basic import AnsibleModule

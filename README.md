@@ -1,13 +1,13 @@
 # Ansible Role: Dynatrace Comment
 
-This role allows to send comments to a Dynatrace problem ticket.
+This role will send a comment to a Dynatrace problem ticket.
 
 ## Download
 
 The role is available via:
 
 - Ansible Galaxy
-- GitHub 
+- GitHub
 
 ## Configuration
 
@@ -26,6 +26,7 @@ Please find below a list of variables that have to be configured:
 ## Usage (Example):
 
 ```yaml
+---
 - hosts: localhost
   vars:
     tenant_url: 'https://XXXXXX.live.dynatrace.com'
@@ -34,8 +35,8 @@ Please find below a list of variables that have to be configured:
 
   tasks:
   - include_role:
-      name: dynatrace_comment
-    vars: 
+      name: dynatrace_problem_comment
+    vars:
       problem_id: 'XXXX'
       comment: 'Hello from Ansible'
       user: 'your@email.com'
