@@ -34,7 +34,7 @@ Please find below a list of variables that have to be configured:
 
   tasks:
   - include_role:
-      name: dynatrace_comment
+      name: dynatrace_problem_comment
     vars: 
       problem_id: 'XXXX'
       comment: 'Hello from Ansible'
